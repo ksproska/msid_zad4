@@ -44,7 +44,9 @@ Steps for creating model:
 
      - no preprocessing (for kNN is unnecessary)
      - enchancing contrast (using cv2 library); for different variables: 9, 12
-     ![image](https://user-images.githubusercontent.com/61067969/120994182-8b344080-c784-11eb-85d2-ccee8d9f22fc.png)
+
+![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
+
 
      - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog); 
        for 9 orientations, 2x2, 4x4, 6x6 pixel rates
