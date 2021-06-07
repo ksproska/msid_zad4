@@ -58,14 +58,26 @@ def hog_features(mx, orientations, pixel_cell, cell_block):
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
 ## Model selection and implementation
-- kNN = [k-Nearest Neighbor](KNeighbors.py/#L6)
+kNN = [k-Nearest Neighbor](KNeighbors.py/#L6)
+```python
+def train_model(neighs, X_train, y_train, X_test, y_test, weights='uniform'):
+    knn_model = KNeighborsClassifier(n_neighbors=neighs, weights=weights)
+    knn_model.fit(X_train, y_train)
+    score = knn_model.score(X_test, y_test)
+    # f1 = f1_score()
+    return knn_model, score
+```
 
 ## Learning algorithm selection and implementation
 - [neighbours](KNeighbors.py/#L16)
 ```python
 neighbours = [3, 4, 5]
 ```
-- feature extraction (no preprocessing and [2 methods](KNeighbors.py#L18) mentioned [above](README.MD/###Preprocessing))
+- [weights](KNeighbors.py#L17)
+```python
+weights = ['uniform', 'distance']
+```
+- feature extraction (no preprocessing and [2 methods](KNeighbors.py#L18) mentioned [above](README.md#preprocessing))
 ```pythom
 files = [
         ('contrast 12', (lambda mx, y=12: contrast(mx, y))),
@@ -74,8 +86,21 @@ files = [
         ('hog 9 4 2', lambda mx, o=9, p=4, c=2: hog_features(mx, o, p, c)),
     ]
 ```
+```python
+X_train_orig, y_train_orig, X_test_orig, y_test_orig = load_original()
+```
+```python
+X_train, y_train, X_test, y_test = load_from_file('preprocessing\\' + filename + '.pkl')
+```
 ## Prediction for new image using created model
-The best model is chosen according to it's accuracy (knn_model.prediction(...))
+The best model is chosen according to it's [accuracy](KNeighbors.py#L50). To get a single picture [prediction](using_models.py#L15):
+```python
+def get_predict_int(mx, model, preprocess_fun):
+    tested = np.reshape(mx, (28, 28, 1))
+    tested = preprocess_fun(tested)
+    tested = np.reshape(tested, (1, 28 * 28))
+    return model.predict(tested)
+```
 
 # RESULTS
 
