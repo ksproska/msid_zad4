@@ -17,10 +17,15 @@ https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
 Because of github upload limitations in my repository only 3/4 files are added.
 
 Using method load_nist from feature_extraction.py we extract 4 matrices:
+
   name      size
+  
 • X_train   60000x784
+
 • y_train   60000x1
+
 • X_test    10000x784
+
 • y_test    10000x1
 
 X_... matrices contain an image for each row.
