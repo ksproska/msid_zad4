@@ -30,10 +30,8 @@ Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feat
 ```
 # METHODS
 
-## Steps for creating model:
-
-### Feature extraction from picture.
-#### [No preprocessing](feature_extraction.py/#L39) (for kNN is unnecessary)
+## Feature extraction from picture.
+### [No preprocessing](feature_extraction.py/#L39) (for kNN is unnecessary)
 ```python
 def load_original(path='original'):
     X_train, y_train = load_mnist(path, kind='train')
@@ -42,7 +40,7 @@ def load_original(path='original'):
 ```
 ![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
 
-#### [Preprocessing](feature_extraction.py#L66)
+### [Preprocessing](feature_extraction.py#L66)
 [enchancing contrast](feature_extraction.py/#L85) (using cv2 library); for different variables: 9, 12
 ```python
 def contrast(mx, contr):
@@ -59,15 +57,15 @@ def hog_features(mx, orientations, pixel_cell, cell_block):
 ```
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
-### Model selection and implementation.
+## Model selection and implementation.
 - kNN = [k-Nearest Neighbor](KNeighbors.py/#L6)
 
-### Learning algorithm selection and implementation.
+## Learning algorithm selection and implementation.
 - [neighbours](KNeighbors.py/#L16) [3, 4, 5]
 
 - feature extraction (3 methods mentioned above)
 
-### Prediction for new image using created model.
+## Prediction for new image using created model.
 The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
 # RESULTS
