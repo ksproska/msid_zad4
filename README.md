@@ -36,28 +36,28 @@ y_... matrices contain number of label from:
 
 ## Steps for creating model:
 
-• Feature extraction from picture.
+### Feature extraction from picture.
+no preprocessing (for kNN is unnecessary)
 
-     - no preprocessing (for kNN is unnecessary)
 ![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
 
-     - enchancing contrast (using cv2 library); for different variables: 9, 12
+enchancing contrast (using cv2 library); for different variables: 9, 12
+
 ![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
 
-     - HOG = Histogram of oriented gradients (from skimage.feature import hog); 
-       for 9 orientations, 2x2, 4x4, 6x6 pixel rates
+HOG = Histogram of oriented gradients (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
-• Model selection and implementation.
+### Model selection and implementation.
 
      - kNN = k-Nearest Neighbor (from sklearn - KNeighborsClassifier(n_neighbors=neighs, weights=weights))
 
-• Learning algorithm selection and implementation.
+### Learning algorithm selection and implementation.
 
      - neighbours [3, 4, 5]
      - feature extraction (3 methods mentioned above)
 
-• Prediction for new image using created model.
+### Prediction for new image using created model.
 
      The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
