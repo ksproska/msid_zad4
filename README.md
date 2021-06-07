@@ -83,7 +83,7 @@ HOG only slightly increases accuracy.
   
   Since I decided to use HOG for feature extraction, time for feature extraction increased dramaticly, and I decided to seperate this proces from the others. In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
   
-### 2. Generating 3 models with best accuracy (KNeighbors.py)
+### 2. Generating 3 models with best accuracy [MSID_zad4_Kamila_Sproska](KNeighbors.py)
 
   By accessing original matrices from original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters. The 3 models with best accuracy are then saved in models directory as .sav files.
 
