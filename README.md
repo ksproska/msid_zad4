@@ -44,13 +44,13 @@ Steps for creating model:
      - enchancing contrast (using cv2 library); for different variables: 9, 12
 ![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
 
-     - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog); 
+     - HOG = Histogram of oriented gradients (from skimage.feature import hog); 
        for 9 orientations, 2x2, 4x4, 6x6 pixel rates
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
 • Model selection and implementation.
 
-     - kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
+     - kNN = k-Nearest Neighbor (from sklearn - KNeighborsClassifier(n_neighbors=neighs, weights=weights))
 
 • Learning algorithm selection and implementation.
 
@@ -66,9 +66,13 @@ RESULTS
 Results of models with different parameters are avaliable in knn_results.txt.
 Best ones for each approach:
 
-     - 0.8675 accuracy, neighbours = 4, hog, pixels rate = 4
+     - 0.8675 accuracy, neighbours = 4, hog, pixels rate = 4x4
      - 0.8613 accuracy, neighbours = 4, contrast = 12
      - 0.8597 accuracy, neighbours = 4, no preprocessing
+
+Comparing to resuts form: http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#
+![image](https://user-images.githubusercontent.com/61067969/120996131-57f2b100-c786-11eb-90c5-e92a9c33a53b.png)
+HOG only slightly increases accuracy.
 
 USAGE
 Models creation was seperated into three steps:
