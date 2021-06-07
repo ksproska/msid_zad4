@@ -49,13 +49,12 @@ y_... matrices contain number of label from:
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
 ### Model selection and implementation.
-
-     - kNN = k-Nearest Neighbor (from sklearn - KNeighborsClassifier(n_neighbors=neighs, weights=weights))
+- kNN = [k-Nearest Neighbor](KNeighbors.py/#6)
 
 ### Learning algorithm selection and implementation.
+- [neighbours](KNeighbors.py/#16) [3, 4, 5]
 
-     - neighbours [3, 4, 5]
-     - feature extraction (3 methods mentioned above)
+- feature extraction (3 methods mentioned above)
 
 ### Prediction for new image using created model.
 
