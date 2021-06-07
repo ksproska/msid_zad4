@@ -38,16 +38,21 @@ y_... matrices contain number of label from:
 METHODS
 Steps for creating model:
 • Feature extraction from picture.
+
 ├─> no preprocessing (for kNN is unnecessary)
+
 └─> HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog)
 
 • Model selection and implementation.
+
 └─> kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
 
 • Learning algorithm selection and implementation.
+
 └─> for kNN for [3, 4, 5] neighbours (we choose one with higher score)
 
 • Prediction for new image using created model.
+
 └─> for kNN = knn_model.prediction(...)
 
 Tutaj jest należy opisać metody jakie zostały zastosowane celem osiągnięcia
@@ -70,32 +75,56 @@ Models creation was seperated into three steps:
 - Using a single model to predict label of a single peacture at the time (using_models.py)
 
 Used libraries:
+
 ├─> skilearn
+
 ├─> skimage
+
 ├─> numpy
+
 ├─> cv2
+
 └─> pickle
 
 Files placement:
+
 ├─── feature_extraction.py
+
 ├─── KNeighbors.py
+
 ├─── using_models.py
+
 │
+
 ├─── original
+
 │    ├─── t10k-images-idx3-ubyte.gz
+
 │    ├─── t10k-labels-idx1-ubyte.gz
+
 │    ├─── train-images-idx3-ubyte.gz
+
 │    └─── train-labels-idx1-ubyte.gz
+
 ├─── preprocessing
+
 │    ├─── contrast 12.pkl
+
 │    ├─── hog 9 2 2.pkl
+
 │    ├─── ...
+
 │    └─── ...
+
 └─── models
-     ├─── knn_hog 9 2 2_distance_4.sav
-     ├─── knn_hog 9 2 2_distance_5.sav
-     ├─── knn_hog 9 2 2_uniform_4.sav
-     └─── knn_hog 9 2 2_uniform_5.sav
+
+├─── knn_hog 9 2 2_distance_4.sav
+
+├─── knn_hog 9 2 2_distance_5.sav
+
+├─── knn_hog 9 2 2_uniform_4.sav
+
+└─── knn_hog 9 2 2_uniform_5.sav
 
 
 W tej sekcji należy opisać w jaki sposób uruchomić przygotowany przez Pań-
