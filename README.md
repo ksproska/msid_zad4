@@ -76,7 +76,7 @@ neighbours = [3, 4, 5]
 weights = ['uniform', 'distance']
 ```
 - feature extraction (no preprocessing and [2 methods](KNeighbors.py#L18) mentioned [above](README.md#preprocessing))
-```pythom
+```python
 files = [
         ('contrast 12', (lambda mx, y=12: contrast(mx, y))),
         ('hog 9 2 2', (lambda mx, o=9, p=2, c=2: hog_features(mx, o, p, c))),
