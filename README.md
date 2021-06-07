@@ -41,18 +41,25 @@ METHODS
 Steps for creating model:
 
 • Feature extraction from picture.
+
      - no preprocessing (for kNN is unnecessary)
      - enchancing contrast (using cv2 library); for different variables: 9, 12
-     - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
+     ![image](https://user-images.githubusercontent.com/61067969/120994182-8b344080-c784-11eb-85d2-ccee8d9f22fc.png)
+
+     - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog); 
+       for 9 orientations, 2x2, 4x4, 6x6 pixel rates
 
 • Model selection and implementation.
+
      - kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
 
 • Learning algorithm selection and implementation.
+
      - neighbours [3, 4, 5]
      - feature extraction (3 methods mentioned above)
 
 • Prediction for new image using created model.
+
      The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
 RESULTS
