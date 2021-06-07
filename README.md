@@ -14,7 +14,7 @@ https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to [or
 
 Because of github upload limitations in my repository only 3/4 files are added.
 
-Using method [load_nist](feature_extraction.py) we extract 4 matrices:
+Using method [load_nist](feature_extraction.py/#L8) we extract 4 matrices:
 
      name      size
      X_train   60000x784
