@@ -4,7 +4,7 @@ Aim: By using available libraries (in my example mainly sklearn) create a model 
 
 Fashion mnist contains 4 matrices, downloaded from
 
-https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
+https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to [original](original):
 
      └─── original
           ├─── t10k-images-idx3-ubyte.gz
@@ -14,7 +14,7 @@ https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
 
 Because of github upload limitations in my repository only 3/4 files are added.
 
-Using method load_nist from feature_extraction.py we extract 4 matrices:
+Using method [load_nist](feature_extraction.py) we extract 4 matrices:
 
      name      size
      X_train   60000x784
