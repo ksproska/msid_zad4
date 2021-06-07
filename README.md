@@ -1,6 +1,6 @@
 INTRODUCTION
 
-Aim: By using available libraries (in my example sklearn) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
+Aim: By using available libraries (in my example mainly sklearn) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
 
 Fashion mnist contains 4 matrices, downloaded from
 
@@ -43,8 +43,8 @@ Steps for creating model:
 • Feature extraction from picture.
 
      - no preprocessing (for kNN is unnecessary)
-     - enchancing contrast (using cv2 library)
-     - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog)
+     - enchancing contrast (using cv2 library); for different variables: 9, 12
+     - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
 
 • Model selection and implementation.
 
@@ -52,25 +52,21 @@ Steps for creating model:
 
 • Learning algorithm selection and implementation.
 
-     - for kNN for [3, 4, 5] neighbours (we choose one with higher score)
+     - neighbours [3, 4, 5]
+     - feature extraction (3 methods mentioned above)
 
 • Prediction for new image using created model.
 
-     - for kNN = knn_model.prediction(...)
-
-Tutaj jest należy opisać metody jakie zostały zastosowane celem osiągnięcia
-zamierzonych efektów. Warto zamieścić tutaj odnośniki do metod z których czerpali
-Państwo inspiracje, oraz ilustracje pozwalające na zrozumienie Państwa podejścia.
-
+     The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
 RESULTS
 
 Results of models with different parameters are avaliable in knn_results.txt.
+Best ones for each approach:
 
-W tym przypadku należy opisać wyniki, które otrzymali Państwo dla opisanych
-wyżej metod. Wyniki warto przedstawić w tabelce, zestawiając z wynikami otrzymanymi
-dla rozwiązań referencyjnych (tymi opisanymi w sekcji Benchmark).
-
+     - 0.8675 accuracy, neighbours = 4, hog, pixels rate = 4
+     - 0.8613 accuracy, neighbours = 4, contrast = 12
+     - 0.8597 accuracy, neighbours = 4, no preprocessing
 
 USAGE
 Models creation was seperated into three steps:
@@ -114,10 +110,3 @@ Files placement:
           ├─── knn_hog 9 2 2_distance_5.sav
           ├─── knn_hog 9 2 2_uniform_4.sav
           └─── knn_hog 9 2 2_uniform_5.sav
-
-
-W tej sekcji należy opisać w jaki sposób uruchomić przygotowany przez Pań-
-stwa projekt. W opisie należy uwzględnić w jaki sposób należy umieścić dane uczące i
-testowe (a może pobieranie danych odbywa się automatycznie?), jakie biblioteki należy
-zainstalować, w jaki sposób uruchomić program, aby otrzymać wyniki z sekcji Results,
-czy można gdzieś pobrać wyuczone modele i w jaki sposób ich użyć ?
