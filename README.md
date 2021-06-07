@@ -81,15 +81,11 @@ Models creation was seperated into three steps:
 
 • Accessing and preprocessing data (feature_extraction.py)
   
-  Since I decided to use HOG for feature extraction, time for feature extraction increased dramaticly, and I decided to seperate this proces from the others.
-  
-  In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
+  Since I decided to use HOG for feature extraction, time for feature extraction increased dramaticly, and I decided to seperate this proces from the others. In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
   
 • Generating 3 models with best accuracy (KNeighbors.py)
 
-  By accessing original matrices from original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters.
-  
-  The 3 models with best accuracy are then saved in models directory as .sav files.
+  By accessing original matrices from original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters. The 3 models with best accuracy are then saved in models directory as .sav files.
 
 • Using a single model to predict label of a single peacture at the time (using_models.py)
 
