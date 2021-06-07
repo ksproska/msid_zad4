@@ -22,7 +22,7 @@ Image is saved in a row as a flattened numpay array (from 2D 28x28 pixels image,
 y_... matrices contain number of label from:
 ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
-─────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 METHODS
 Steps for creating model:
 • Feature extraction from picture.
@@ -42,13 +42,13 @@ Tutaj jest należy opisać metody jakie zostały zastosowane celem osiągnięcia
 zamierzonych efektów. Warto zamieścić tutaj odnośniki do metod z których czerpali
 Państwo inspiracje, oraz ilustracje pozwalające na zrozumienie Państwa podejścia.
 
-─────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 RESULTS
 W tym przypadku należy opisać wyniki, które otrzymali Państwo dla opisanych
 wyżej metod. Wyniki warto przedstawić w tabelce, zestawiając z wynikami otrzymanymi
 dla rozwiązań referencyjnych (tymi opisanymi w sekcji Benchmark).
 
-─────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 USAGE
 
 Used libraries:
