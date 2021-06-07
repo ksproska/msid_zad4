@@ -60,10 +60,11 @@ The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
 Results of models with different parameters are avaliable in [knn_results.txt](knn_results.txt).
 Best ones for each approach:
-
-     - 0.8675 accuracy, neighbours = 4, hog, pixels rate = 4x4
-     - 0.8613 accuracy, neighbours = 4, contrast = 12
-     - 0.8597 accuracy, neighbours = 4, no preprocessing
+| accuracy | neighbors | preprocessing |
+| --- | --- | --- |
+| 0.8675 | 4 | hog, pixels rate = 4x4 |
+| 0.8613 | 4 | contrast = 12 |
+| 0.8597 | 4 | no preprocessing |
 
 Comparing to resuts form: http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#
 ![image](https://user-images.githubusercontent.com/61067969/120996131-57f2b100-c786-11eb-90c5-e92a9c33a53b.png)
