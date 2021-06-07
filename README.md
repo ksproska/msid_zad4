@@ -2,9 +2,7 @@
 
 ***Aim:*** By using available libraries (in my example mainly [scikit-learn](https://pypi.org/project/scikit-learn/)) create a model for [Fashion Mnist](https://github.com/zalandoresearch/fashion-mnist) data (matrixes containging matrices of flattened 28x28 pictures of clothing).
 
-Fashion mnist contains 4 matrices, downloaded from
-
-https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to [original](original):
+Fashion mnist contains 4 matrices, downloaded from https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to [original](original):
 
      └─── original
           ├─── t10k-images-idx3-ubyte.gz
@@ -41,14 +39,14 @@ def load_original(path='original'):
 ![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
 
 ### [Preprocessing](feature_extraction.py#L66)
-[enchancing contrast](feature_extraction.py/#L85) (using cv2 library); for different variables: 9, 12
+1. [enchancing contrast](feature_extraction.py/#L85) (using cv2 library); for different variables: 9, 12
 ```python
 def contrast(mx, contr):
     return cv2.filter2D(mx, -1, np.array([[-1, -1, -1], [-1, contr, -1], [-1, -1, -1]]))
 ```
 ![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
 
-[HOG](feature_extraction.py/#L95) = Histogram of oriented gradients (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
+2. [HOG](feature_extraction.py/#L95) = Histogram of oriented gradients (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
 ```python
 def hog_features(mx, orientations, pixel_cell, cell_block):
     fd, hog_image = hog(mx, orientations=orientations, pixels_per_cell=(pixel_cell, pixel_cell),
