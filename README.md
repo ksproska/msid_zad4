@@ -43,13 +43,14 @@ Steps for creating model:
 • Feature extraction from picture.
 
      - no preprocessing (for kNN is unnecessary)
+![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
+
      - enchancing contrast (using cv2 library); for different variables: 9, 12
-
 ![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
-
 
      - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog); 
        for 9 orientations, 2x2, 4x4, 6x6 pixel rates
+![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
 • Model selection and implementation.
 
