@@ -33,10 +33,11 @@ y_... matrices contain numbers of labels from [table](using_models.py#L23):
 ## Steps for creating model:
 
 ### Feature extraction from picture.
-[no preprocessing](feature_extraction.py/#L39) (for kNN is unnecessary)
+#### [No preprocessing](feature_extraction.py/#L39) (for kNN is unnecessary)
 
 ![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
 
+#### [Preprocessing](feature_extraction.py#L66)
 [enchancing contrast](feature_extraction.py/#L85) (using cv2 library); for different variables: 9, 12
 
 ![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
