@@ -3,10 +3,15 @@ Aim: By using available libraries (in my example sklearn) create a model for Fas
 
 Fashion mnist contains 4 matrices, downloaded from
 https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
+
 └─── original
+
      ├─── t10k-images-idx3-ubyte.gz
+     
      ├─── t10k-labels-idx1-ubyte.gz
+     
      ├─── train-images-idx3-ubyte.gz
+     
      └─── train-labels-idx1-ubyte.gz
 
 Because of github upload limitations in my repository only 3/4 files are added.
