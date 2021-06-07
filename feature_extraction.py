@@ -114,28 +114,6 @@ def display(mx, label='', size_x=450, size_y=450):
     cv2.destroyAllWindows()
 
 
-# def gabor_test_param():
-#     ksizes = [2]
-#     sigmas = [1]
-#     thetas = [45]
-#     lamdas = [1]
-#     gammas = [0.01, 0.025, 0.05, 0.075, 0.1]
-#     phis = [0]
-#
-#     preps = []
-#     for ksize in ksizes:
-#         for sigma in sigmas:
-#             for theta in thetas:
-#                 theta = theta * (np.pi / 180)
-#                 for lamda_v in lamdas:
-#                     for gamma in gammas:
-#                         for phi in phis:
-#                             name = (ksize, sigma, round(theta, 2), lamda_v, gamma, phi)
-#                             preps.append(lambda n=name, k=ksize, s=sigma, t=theta, l=lamda_v, g=gamma, p=phi
-#                                          : pre3(n, k, s, t, l, g, p))
-#     return preps
-
-
 if __name__ == '__main__':
     X_train_orig, y_train_orig, X_test_orig, y_test_orig = load_original()
     files = [
