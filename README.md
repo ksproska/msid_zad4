@@ -14,7 +14,7 @@ https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to [or
 
 Because of github upload limitations in my repository only 3/4 files are added.
 
-Using method [load_nist](feature_extraction.py/#L8) we extract 4 matrices:
+Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feature_extraction.py#L118):
 
      name      size
      X_train   60000x784
@@ -22,15 +22,11 @@ Using method [load_nist](feature_extraction.py/#L8) we extract 4 matrices:
      X_test    10000x784
      y_test    10000x1
 
-X_... matrices contain an image for each row.
+X_... matrices contain an image for each row as a flattened numpay array (from 2D 28x28 pixels image [->](feature_extraction.py#L52) 1x784; pixel values (0-255))
 
-     Image is saved in a row as a flattened numpay array (from 2D 28x28 pixels image, pixel values (0-255))
-
-y_... matrices contain number of label from:
+y_... matrices contain numbers of labels from [table](using_models.py#L23):
 
      ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-
-
 
 # METHODS
 
