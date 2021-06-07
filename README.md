@@ -118,13 +118,13 @@ Files placement:
 
 └─── models
 
-├─── knn_hog 9 2 2_distance_4.sav
+     ├─── knn_hog 9 2 2_distance_4.sav
 
-├─── knn_hog 9 2 2_distance_5.sav
+     ├─── knn_hog 9 2 2_distance_5.sav
 
-├─── knn_hog 9 2 2_uniform_4.sav
+     ├─── knn_hog 9 2 2_uniform_4.sav
 
-└─── knn_hog 9 2 2_uniform_5.sav
+     └─── knn_hog 9 2 2_uniform_5.sav
 
 
 W tej sekcji należy opisać w jaki sposób uruchomić przygotowany przez Pań-
