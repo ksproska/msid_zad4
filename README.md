@@ -62,7 +62,7 @@ y_... matrices contain number of label from:
 
 # RESULTS
 
-Results of models with different parameters are avaliable in knn_results.txt.
+Results of models with different parameters are avaliable in [knn_results.txt](knn_results.txt).
 Best ones for each approach:
 
      - 0.8675 accuracy, neighbours = 4, hog, pixels rate = 4x4
