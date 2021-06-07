@@ -34,7 +34,7 @@ y_... matrices contain number of label from:
 
 # METHODS
 
-Steps for creating model:
+## Steps for creating model:
 
 • Feature extraction from picture.
 
@@ -77,7 +77,7 @@ HOG only slightly increases accuracy.
 
 
 # USAGE
-Models creation was seperated into three steps:
+## Models creation was seperated into three steps:
 
 • Accessing and preprocessing data (feature_extraction.py)
   
