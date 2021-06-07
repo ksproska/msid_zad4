@@ -30,7 +30,7 @@ Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feat
 ```
 # METHODS
 
-## Feature extraction from picture.
+## Feature extraction from picture
 ### [No preprocessing](feature_extraction.py/#L39) (for kNN is unnecessary)
 ```python
 def load_original(path='original'):
@@ -57,15 +57,24 @@ def hog_features(mx, orientations, pixel_cell, cell_block):
 ```
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
-## Model selection and implementation.
+## Model selection and implementation
 - kNN = [k-Nearest Neighbor](KNeighbors.py/#L6)
 
-## Learning algorithm selection and implementation.
-- [neighbours](KNeighbors.py/#L16) [3, 4, 5]
-
-- feature extraction (3 methods mentioned above)
-
-## Prediction for new image using created model.
+## Learning algorithm selection and implementation
+- [neighbours](KNeighbors.py/#L16)
+```python
+neighbours = [3, 4, 5]
+```
+- feature extraction (no preprocessing and [2 methods](KNeighbors.py#L18) mentioned [above](README.MD/###Preprocessing))
+```pythom
+files = [
+        ('contrast 12', (lambda mx, y=12: contrast(mx, y))),
+        ('hog 9 2 2', (lambda mx, o=9, p=2, c=2: hog_features(mx, o, p, c))),
+        ('hog 9 3 2', lambda mx, o=9, p=3, c=2: hog_features(mx, o, p, c)),
+        ('hog 9 4 2', lambda mx, o=9, p=4, c=2: hog_features(mx, o, p, c)),
+    ]
+```
+## Prediction for new image using created model
 The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
 # RESULTS
