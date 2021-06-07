@@ -92,7 +92,7 @@ HOG only slightly increases accuracy.
   This file is created in order to demonstrate the usage of generated model - how to predict the label of a single picture.
      
 
-Used libraries:
+## Used libraries:
 
      ├─> skilearn
      ├─> skimage
@@ -100,7 +100,7 @@ Used libraries:
      ├─> cv2
      └─> pickle
 
-Files placement:
+## Files placement:
 
      ├─── feature_extraction.py
      ├─── KNeighbors.py
