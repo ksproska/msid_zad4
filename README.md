@@ -1,7 +1,9 @@
 INTRODUCTION
+
 Aim: By using available libraries (in my example sklearn) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
 
 Fashion mnist contains 4 matrices, downloaded from
+
 https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
 
 └─── original
@@ -29,31 +31,35 @@ Using method load_nist from feature_extraction.py we extract 4 matrices:
 • y_test    10000x1
 
 X_... matrices contain an image for each row.
+
 Image is saved in a row as a flattened numpay array (from 2D 28x28 pixels image, pixel values (0-255))
 
 y_... matrices contain number of label from:
+
 ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 
 METHODS
+
 Steps for creating model:
+
 • Feature extraction from picture.
 
-├─> no preprocessing (for kNN is unnecessary)
-
-└─> HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog)
+     ├─> no preprocessing (for kNN is unnecessary)
+     ├─> enchancing contrast (using cv2 library)
+     └─> HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog)
 
 • Model selection and implementation.
 
-└─> kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
+     └─> kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
 
 • Learning algorithm selection and implementation.
 
-└─> for kNN for [3, 4, 5] neighbours (we choose one with higher score)
+     └─> for kNN for [3, 4, 5] neighbours (we choose one with higher score)
 
 • Prediction for new image using created model.
 
-└─> for kNN = knn_model.prediction(...)
+     └─> for kNN = knn_model.prediction(...)
 
 Tutaj jest należy opisać metody jakie zostały zastosowane celem osiągnięcia
 zamierzonych efektów. Warto zamieścić tutaj odnośniki do metod z których czerpali
