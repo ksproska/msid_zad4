@@ -22,9 +22,8 @@ Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feat
      X_test    10000x784
      y_test    10000x1
 
-X_... matrices contain an image for each row as a flattened numpay array (from 2D 28x28 pixels image [->](feature_extraction.py#L52) 1x784; pixel values (0-255))
-
-y_... matrices contain numbers of labels from [table](using_models.py#L23):
+- **X_...** matrices contain an image for each row as a flattened numpay array (from 2D 28x28 pixels image [->](feature_extraction.py#L52) 1x784; pixel values (0-255))
+- **y_...** matrices contain numbers of labels from [table](using_models.py#L23):
 
      ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
@@ -54,8 +53,7 @@ y_... matrices contain numbers of labels from [table](using_models.py#L23):
 - feature extraction (3 methods mentioned above)
 
 ### Prediction for new image using created model.
-
-     The best model is chosen according to it's accuracy (knn_model.prediction(...))
+The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
 # RESULTS
 
