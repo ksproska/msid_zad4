@@ -133,12 +133,11 @@ HOG only slightly increases accuracy.
      
 
 ## Used libraries:
-
-     ├─> skilearn
-     ├─> skimage
-     ├─> numpy
-     ├─> cv2
-     └─> pickle
+- skilearn
+- skimage
+- numpy
+- cv2
+- pickle
 
 ## Files placement:
 
