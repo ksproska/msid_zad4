@@ -106,11 +106,11 @@ Results of models with different parameters are avaliable in [knn_results.txt](k
 Best ones for each approach:
 | accuracy | neighbors | preprocessing |
 | --- | --- | --- |
-| 0.8675 | 4 | hog, pixels rate = 4x4 |
-| 0.8613 | 4 | contrast = 12 |
-| 0.8597 | 4 | no preprocessing |
+| [0.8675](knn_results.txt#L2) | 4 | hog, pixels rate = 4x4 |
+| [0.8613](knn_results.txt#L13) | 4 | contrast = 12 |
+| [0.8597](knn_results.txt#L16) | 4 | no preprocessing |
 
-Comparing to resuts form: http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#
+Comparing to resuts form: [Fashion MNIST Benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#)
 ![image](https://user-images.githubusercontent.com/61067969/120996131-57f2b100-c786-11eb-90c5-e92a9c33a53b.png)
 
 HOG only slightly increases accuracy.
