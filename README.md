@@ -28,11 +28,11 @@ Using method load_nist from feature_extraction.py we extract 4 matrices:
 
 X_... matrices contain an image for each row.
 
-Image is saved in a row as a flattened numpay array (from 2D 28x28 pixels image, pixel values (0-255))
+     Image is saved in a row as a flattened numpay array (from 2D 28x28 pixels image, pixel values (0-255))
 
 y_... matrices contain number of label from:
 
-['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+     ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 
 
@@ -41,22 +41,18 @@ METHODS
 Steps for creating model:
 
 • Feature extraction from picture.
-
      - no preprocessing (for kNN is unnecessary)
      - enchancing contrast (using cv2 library); for different variables: 9, 12
      - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
 
 • Model selection and implementation.
-
      - kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
 
 • Learning algorithm selection and implementation.
-
      - neighbours [3, 4, 5]
      - feature extraction (3 methods mentioned above)
 
 • Prediction for new image using created model.
-
      The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
 RESULTS
