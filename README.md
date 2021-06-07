@@ -1,6 +1,6 @@
 # INTRODUCTION
 
-***Aim:*** By using available libraries (in my example mainly [sklearn](https://pypi.org/project/scikit-learn/)) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
+***Aim:*** By using available libraries (in my example mainly [scikit-learn](https://pypi.org/project/scikit-learn/)) create a model for [Fashion Mnist](https://github.com/zalandoresearch/fashion-mnist) data (matrixes containging matrices of flattened 28x28 pictures of clothing).
 
 Fashion mnist contains 4 matrices, downloaded from
 
@@ -15,12 +15,12 @@ https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to [or
 Because of github upload limitations in my repository only 3/4 files are added.
 
 Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feature_extraction.py#L118):
-
-     name      size
-     X_train   60000x784
-     y_train   60000x1
-     X_test    10000x784
-     y_test    10000x1
+| name | size |
+| --- | --- |
+| X_train | 60000x784 |
+| y_train | 60000x1 |
+| X_test | 10000x784 |
+| y_test | 10000x1 |
 
 - **X_... matrices** contain an image for each row as a flattened numpay array (from 2D 28x28 pixels image [->](feature_extraction.py#L52) 1x784; pixel values (0-255))
 - **y_... matrices** contain numbers of labels from [table](using_models.py#L23):
