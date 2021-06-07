@@ -6,15 +6,11 @@ Fashion mnist contains 4 matrices, downloaded from
 
 https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
 
-└─── original
-
-     ├─── t10k-images-idx3-ubyte.gz
-     
-     ├─── t10k-labels-idx1-ubyte.gz
-     
-     ├─── train-images-idx3-ubyte.gz
-     
-     └─── train-labels-idx1-ubyte.gz
+     └─── original
+          ├─── t10k-images-idx3-ubyte.gz
+          ├─── t10k-labels-idx1-ubyte.gz
+          ├─── train-images-idx3-ubyte.gz
+          └─── train-labels-idx1-ubyte.gz
 
 Because of github upload limitations in my repository only 3/4 files are added.
 
@@ -46,21 +42,21 @@ Steps for creating model:
 
 • Feature extraction from picture.
 
-     ├─> no preprocessing (for kNN is unnecessary)
-     ├─> enchancing contrast (using cv2 library)
-     └─> HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog)
+     - no preprocessing (for kNN is unnecessary)
+     - enchancing contrast (using cv2 library)
+     - HOG = Histogram of oriented gradients for contours analysis (from skimage.feature import hog)
 
 • Model selection and implementation.
 
-     └─> kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
+     - kNN = k-Nearest Neighbor (KNeighborsClassifier(n_neighbors=neighs, weights=weights))
 
 • Learning algorithm selection and implementation.
 
-     └─> for kNN for [3, 4, 5] neighbours (we choose one with higher score)
+     - for kNN for [3, 4, 5] neighbours (we choose one with higher score)
 
 • Prediction for new image using created model.
 
-     └─> for kNN = knn_model.prediction(...)
+     - for kNN = knn_model.prediction(...)
 
 Tutaj jest należy opisać metody jakie zostały zastosowane celem osiągnięcia
 zamierzonych efektów. Warto zamieścić tutaj odnośniki do metod z których czerpali
@@ -78,9 +74,16 @@ dla rozwiązań referencyjnych (tymi opisanymi w sekcji Benchmark).
 
 USAGE
 Models creation was seperated into three steps:
-     Accessing and preprocessing data (feature_extraction.py)
-- Generating 3 models with best accuracy (KNeighbors.py)
-- Using a single model to predict label of a single peacture at the time (using_models.py)
+
+     - Accessing and preprocessing data (feature_extraction.py)
+          Since I decided to use HOG for feature extraction, time for feature extraction increased dramaticly, and I decided to seperate this proces from the others.
+          In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
+     - Generating 3 models with best accuracy (KNeighbors.py)
+          By accessing original matrices from original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters.
+          The 3 models with best accuracy are then saved in models directory as .sav files.
+     - Using a single model to predict label of a single peacture at the time (using_models.py)
+          This file is created in order to demonstrate the usage of generated model - how to predict the label of a single picture.
+     
 
 Used libraries:
 
