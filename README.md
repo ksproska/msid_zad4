@@ -23,7 +23,7 @@ Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feat
 | y_test | 10000x1 |
 
 - **X_... matrices** contain an image for each row as a flattened numpay array (from 2D 28x28 pixels image [->](feature_extraction.py#L52) 1x784; pixel values (0-255))
-- **y_... matrices** contain numbers of labels from [table](using_models.py#L23):
+- **y_... matrices** contain numbers of labels from [table](using_models.py#L23) for each picture in **X_... matrices**:
 
 ```python
 ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
@@ -34,15 +34,29 @@ Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feat
 
 ### Feature extraction from picture.
 #### [No preprocessing](feature_extraction.py/#L39) (for kNN is unnecessary)
-
+```python
+def load_original(path='original'):
+    X_train, y_train = load_mnist(path, kind='train')
+    X_test, y_test = load_mnist(path, kind='t10k')
+    return X_train, y_train, X_test, y_test
+```
 ![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
 
 #### [Preprocessing](feature_extraction.py#L66)
 [enchancing contrast](feature_extraction.py/#L85) (using cv2 library); for different variables: 9, 12
-
+```python
+def contrast(mx, contr):
+    return cv2.filter2D(mx, -1, np.array([[-1, -1, -1], [-1, contr, -1], [-1, -1, -1]]))
+```
 ![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
 
 [HOG](feature_extraction.py/#L95) = Histogram of oriented gradients (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
+```python
+def hog_features(mx, orientations, pixel_cell, cell_block):
+    fd, hog_image = hog(mx, orientations=orientations, pixels_per_cell=(pixel_cell, pixel_cell),
+                        cells_per_block=(cell_block, cell_block), visualize=True, multichannel=True)
+    return hog_image
+```
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
 ### Model selection and implementation.
@@ -75,15 +89,15 @@ HOG only slightly increases accuracy.
 # USAGE
 ## Models creation was seperated into three steps:
 
-### 1. Accessing and preprocessing data [feature_extraction.py](feature_extraction.py)
+### 1. Accessing and preprocessing data - [feature_extraction.py](feature_extraction.py)
   
   Since I decided to use HOG for feature extraction, time for feature extraction increased dramaticly, and I decided to seperate this proces from the others. In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
   
-### 2. Generating 3 models with best accuracy [KNeighbors.py](KNeighbors.py)
+### 2. Generating 3 models with best accuracy - [KNeighbors.py](KNeighbors.py)
 
   By accessing original matrices from original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters. The 3 models with best accuracy are then saved in models directory as .sav files.
 
-### 3. Using a single model to predict label of a single peacture at the time [using_models.py](using_models.py)
+### 3. Using a single model to predict label of a single peacture at the time - [using_models.py](using_models.py)
 
   This file is created in order to demonstrate the usage of generated model - how to predict the label of a single picture.
      
