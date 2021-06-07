@@ -79,15 +79,15 @@ HOG only slightly increases accuracy.
 # USAGE
 ## Models creation was seperated into three steps:
 
-### 1. Accessing and preprocessing data (feature_extraction.py)
+### 1. Accessing and preprocessing data [feature_extraction.py](feature_extraction.py)
   
   Since I decided to use HOG for feature extraction, time for feature extraction increased dramaticly, and I decided to seperate this proces from the others. In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
   
-### 2. Generating 3 models with best accuracy [MSID_zad4_Kamila_Sproska](KNeighbors.py)
+### 2. Generating 3 models with best accuracy [KNeighbors.py](KNeighbors.py)
 
   By accessing original matrices from original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters. The 3 models with best accuracy are then saved in models directory as .sav files.
 
-### 3. Using a single model to predict label of a single peacture at the time (using_models.py)
+### 3. Using a single model to predict label of a single peacture at the time [using_models.py](using_models.py)
 
   This file is created in order to demonstrate the usage of generated model - how to predict the label of a single picture.
      
