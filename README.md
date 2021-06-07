@@ -1,5 +1,5 @@
 INTRODUCTION
-Aim: Using available libraries () create a model for Fashion Mnist.
+Aim: By using available libraries (in my example sklearn) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
 
 Fashion mnist contains 4 matrices, downloaded from
 https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
@@ -8,6 +8,8 @@ https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to:
      ├─── t10k-labels-idx1-ubyte.gz
      ├─── train-images-idx3-ubyte.gz
      └─── train-labels-idx1-ubyte.gz
+
+Because of github upload limitations in my repository only 3/4 files are added.
 
 Using method load_nist from feature_extraction.py we extract 4 matrices:
   name      size
@@ -44,12 +46,18 @@ Państwo inspiracje, oraz ilustracje pozwalające na zrozumienie Państwa podej�
 
 
 RESULTS
+Results of models with different parameters are avaliable in knn_results.txt.
+
 W tym przypadku należy opisać wyniki, które otrzymali Państwo dla opisanych
 wyżej metod. Wyniki warto przedstawić w tabelce, zestawiając z wynikami otrzymanymi
 dla rozwiązań referencyjnych (tymi opisanymi w sekcji Benchmark).
 
 
 USAGE
+Models creation was seperated into three steps:
+- Accessing and preprocessing data (feature_extraction.py)
+- Generating 3 models with best accuracy (KNeighbors.py)
+- Using a single model to predict label of a single peacture at the time (using_models.py)
 
 Used libraries:
 ├─> skilearn
