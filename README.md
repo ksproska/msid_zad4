@@ -1,4 +1,4 @@
-INTRODUCTION
+# INTRODUCTION
 
 Aim: By using available libraries (in my example mainly sklearn) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
 
@@ -32,7 +32,7 @@ y_... matrices contain number of label from:
 
 
 
-METHODS
+# METHODS
 
 Steps for creating model:
 
@@ -61,7 +61,7 @@ Steps for creating model:
 
      The best model is chosen according to it's accuracy (knn_model.prediction(...))
 
-RESULTS
+# RESULTS
 
 Results of models with different parameters are avaliable in knn_results.txt.
 Best ones for each approach:
@@ -76,7 +76,7 @@ Comparing to resuts form: http://fashion-mnist.s3-website.eu-central-1.amazonaws
 HOG only slightly increases accuracy.
 
 
-USAGE
+# USAGE
 Models creation was seperated into three steps:
 
 • Accessing and preprocessing data (feature_extraction.py)
