@@ -1,0 +1,31 @@
+accuracy	type
+0.8675	hog 9 4 2_uniform_4
+0.8666	hog 9 4 2_distance_5
+0.866	hog 9 2 2_distance_4
+0.866	hog 9 4 2_distance_4
+0.8658	hog 9 4 2_uniform_5
+0.8644	hog 9 2 2_uniform_4
+0.8644	hog 9 4 2_distance_3
+0.8624	hog 9 2 2_distance_5
+0.862	hog 9 2 2_uniform_5
+0.8618	hog 9 4 2_uniform_3
+0.8617	hog 9 2 2_uniform_3
+0.8613	contrast 12_distance_4
+0.8607	contrast 12_distance_3
+0.8607	hog 9 2 2_distance_3
+0.8597	no_preprocessing_distance_4
+0.8595	contrast 12_uniform_3
+0.8594	contrast 12_distance_5
+0.8577	no_preprocessing_uniform_4
+0.8577	no_preprocessing_distance_5
+0.8575	contrast 12_uniform_5
+0.8561	no_preprocessing_distance_3
+0.8555	contrast 12_uniform_4
+0.8554	no_preprocessing_uniform_5
+0.8541	no_preprocessing_uniform_3
+0.8473	hog 9 3 2_distance_4
+0.8463	hog 9 3 2_distance_5
+0.8445	hog 9 3 2_distance_3
+0.8442	hog 9 3 2_uniform_5
+0.8441	hog 9 3 2_uniform_4
+0.8425	hog 9 3 2_uniform_3
