@@ -1,6 +1,6 @@
 # INTRODUCTION
 
-Aim: By using available libraries (in my example mainly sklearn) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
+***Aim:*** By using available libraries (in my example mainly [sklearn](https://pypi.org/project/scikit-learn/)) create a model for Fashion Mnist (matrixes containging matrices of flattened 28x28 pictures of clothing).
 
 Fashion mnist contains 4 matrices, downloaded from
 
