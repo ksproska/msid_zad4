@@ -163,7 +163,10 @@ X_train_preprocessed, X_test_preprocessed = preprocessing(X_train, X_test, proce
 ```
 
 ## Prediction for new image using created model
-The best model is chosen according to it's [accuracy](KNeighbors.py#L50). To get a single picture [prediction](using_models.py#L15):
+The best model is chosen according to it's [accuracy](KNeighbors.py#L50).\
+To get a single picture one can use [prediction](using_models.py#L15) method.\
+It intakes picture (in a form of flattened matrix), derived model and processing method 
+(since one could have used a preprocessing method for model training).
 ```python
 def get_predict_int(mx, model, preprocess_fun):
     tested = np.reshape(mx, (28, 28, 1))
@@ -171,7 +174,10 @@ def get_predict_int(mx, model, preprocess_fun):
     tested = np.reshape(tested, (1, 28 * 28))
     return model.predict(tested)
 ```
-
+Method returns label prediction (as a number of label from [table](using_models.py#L23)):
+```python
+['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+```
 # RESULTS
 *Comparison of results of derived methods.*
 
