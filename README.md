@@ -105,7 +105,35 @@ Method returns processed picture matrix (in 28x28 format). Visual example below 
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
 ## Model selection and implementation
-kNN = [k-Nearest Neighbor](KNeighbors.py/#L6)
+*For both exercises (using methods derived for previous exercises for MSiD [[Naive Bayes](zad3.py#L238)], 
+using available libraries [[K-NN](KNeighbors.py/#L6) from library [scikit-learn](https://pypi.org/project/scikit-learn/)]) 
+description of how both models were implemented and derived.*
+
+1. using methods derived for previous exercises for MSiD - [Naive Bayes](zad3.py#L238)
+   
+The previously derived methods are placed in [zad3.py](zad3.py).\
+Model selection method: [model_selection_n](zad3.py#L238). It intakes train matrices along with lists of parameters for a and b.
+####Parameters:
+- a
+- b
+
+Method returns the best error along with the best parameters a and b.
+
+2. using available libraries - [k-Nearest Neighbors](KNeighbors.py/#L6) from library [scikit-learn](https://pypi.org/project/scikit-learn/)
+
+####Parametrs:
+- [neighbours](KNeighbors.py/#L16) - number of neares neighbours (for time-saving purposes 
+  I've chosen only values around 4, since in most cases that value is most reliable).
+```python
+neighbours = [3, 4, 5]
+```
+- [weights](KNeighbors.py#L17) - it has to types: uniform treats each neighbour equally, 
+  second is taking into account distance of each neighbour in probability calculations.
+```python
+weights = ['uniform', 'distance']
+```
+Method for model training - it intakes previously mentioned parameters and train matrices to derive a model.\
+The test matrices are also given since the method also calculates model score (percentage of correctly chosen labels for all training data).
 ```python
 def train_model(neighs, X_train, y_train, X_test, y_test, weights='uniform'):
     knn_model = KNeighborsClassifier(n_neighbors=neighs, weights=weights)
@@ -114,31 +142,19 @@ def train_model(neighs, X_train, y_train, X_test, y_test, weights='uniform'):
     # f1 = f1_score()
     return knn_model, score
 ```
+The methods returns derived model along with it's score (as a float between 0 and 1).
 
-## Learning algorithm selection and implementation
-- [neighbours](KNeighbors.py/#L16)
+####Models for other two preprocessing methods
+The methodology presented above in this point is implemented also for 
+[2 preprocessing methods](KNeighbors.py#L18) mentioned [above](README.md#preprocessing).\
+For preprocessing methods *contrast* and *hog_features* we use *[preprocessing](feature_extraction.py#L66)*.\
+It intakes picture matrices and preprocessing method and returns matrices of preprocessed pictures.\
+For example:
 ```python
-neighbours = [3, 4, 5]
+process_fun = lambda mx, o=9, p=2, c=2: hog_features(mx, o, p, c)
+X_train_preprocessed, X_test_preprocessed = preprocessing(X_train, X_test, process_fun)
 ```
-- [weights](KNeighbors.py#L17)
-```python
-weights = ['uniform', 'distance']
-```
-- feature extraction (no preprocessing and [2 methods](KNeighbors.py#L18) mentioned [above](README.md#preprocessing))
-```python
-files = [
-        ('contrast 12', (lambda mx, y=12: contrast(mx, y))),
-        ('hog 9 2 2', (lambda mx, o=9, p=2, c=2: hog_features(mx, o, p, c))),
-        ('hog 9 3 2', lambda mx, o=9, p=3, c=2: hog_features(mx, o, p, c)),
-        ('hog 9 4 2', lambda mx, o=9, p=4, c=2: hog_features(mx, o, p, c)),
-    ]
-```
-```python
-X_train_orig, y_train_orig, X_test_orig, y_test_orig = load_original()
-```
-```python
-X_train, y_train, X_test, y_test = load_from_file('preprocessing\\' + filename + '.pkl')
-```
+
 ## Prediction for new image using created model
 The best model is chosen according to it's [accuracy](KNeighbors.py#L50). To get a single picture [prediction](using_models.py#L15):
 ```python
@@ -150,9 +166,11 @@ def get_predict_int(mx, model, preprocess_fun):
 ```
 
 # RESULTS
+*Comparison of results of derived methods.*
 
 Results of models with different parameters are avaliable in [knn_results.txt](knn_results.txt).
 Best ones for each approach:
+
 | accuracy | neighbors | weight | preprocessing |
 | --- | --- | --- | --- |
 | [0.8675](knn_results.txt#L2) | 4 | uniform | hog, pixels rate = 4x4 |
@@ -160,12 +178,14 @@ Best ones for each approach:
 | [0.8597](knn_results.txt#L16) | 4 | distance | no preprocessing |
 
 Comparing to resuts form: [Fashion MNIST Benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#)
+
 ![image](https://user-images.githubusercontent.com/61067969/120996131-57f2b100-c786-11eb-90c5-e92a9c33a53b.png)
 
 HOG only slightly increases accuracy.
 
 
 # USAGE
+*Instruction on program download and setup.*
 ## Models creation was seperated into three steps:
 
 ### 1. Accessing and preprocessing data - [feature_extraction.py](feature_extraction.py)
