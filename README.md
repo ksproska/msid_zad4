@@ -109,18 +109,24 @@ Method returns processed picture matrix (in 28x28 format). Visual example below 
 using available libraries [[K-NN](KNeighbors.py/#L6) from library [scikit-learn](https://pypi.org/project/scikit-learn/)]) 
 description of how both models were implemented and derived.*
 
-1. using methods derived for previous exercises for MSiD - [Naive Bayes](zad3.py#L238)
+###1. using methods derived for previous exercises for MSiD - [Naive Bayes](zad3.py#L238)
    
 The previously derived methods are placed in [zad3.py](zad3.py).\
 Model selection method: [model_selection_n](zad3.py#L238). It intakes train matrices along with lists of parameters for a and b.
 #### Parameters:
+Equation for MAP - probability of each label for certain picture by comparison to other pictures:
+
 ![image](https://user-images.githubusercontent.com/61067969/121890887-209e7a00-cd1b-11eb-846c-bc8904fa6002.png)
-- a
-- b
+- a - parameter for regulating importance of numerator in equation
+- b - parameter for regulating importance of denominator in equation
 
-Method returns the best error along with the best parameters a and b.
+Method returns the best error along with the best parameters a and b.\
+Model selection for parameters:
+```python
+best_error, best_a, best_b, errors = model_selection_nb(X_train, X_test, y_train, y_test, a_values, b_values)
+```
 
-2. using available libraries - [k-Nearest Neighbors](KNeighbors.py/#L6) from library [scikit-learn](https://pypi.org/project/scikit-learn/)
+###2. using available libraries - [k-Nearest Neighbors](KNeighbors.py/#L6) from library [scikit-learn](https://pypi.org/project/scikit-learn/)
 
 #### Parametrs:
 - [neighbours](KNeighbors.py/#L16) - number of neares neighbours (for time-saving purposes 
