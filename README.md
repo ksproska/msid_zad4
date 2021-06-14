@@ -113,7 +113,8 @@ description of how both models were implemented and derived.*
    
 The previously derived methods are placed in [zad3.py](zad3.py).\
 Model selection method: [model_selection_n](zad3.py#L238). It intakes train matrices along with lists of parameters for a and b.
-####Parameters:
+#### Parameters:
+![image](https://user-images.githubusercontent.com/61067969/121890887-209e7a00-cd1b-11eb-846c-bc8904fa6002.png)
 - a
 - b
 
