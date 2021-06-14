@@ -121,7 +121,7 @@ Method returns the best error along with the best parameters a and b.
 
 2. using available libraries - [k-Nearest Neighbors](KNeighbors.py/#L6) from library [scikit-learn](https://pypi.org/project/scikit-learn/)
 
-####Parametrs:
+#### Parametrs:
 - [neighbours](KNeighbors.py/#L16) - number of neares neighbours (for time-saving purposes 
   I've chosen only values around 4, since in most cases that value is most reliable).
 ```python
@@ -144,7 +144,7 @@ def train_model(neighs, X_train, y_train, X_test, y_test, weights='uniform'):
 ```
 The methods returns derived model along with it's score (as a float between 0 and 1).
 
-####Models for other two preprocessing methods
+#### Models for other two preprocessing methods
 The methodology presented above in this point is implemented also for 
 [2 preprocessing methods](KNeighbors.py#L18) mentioned [above](README.md#preprocessing).\
 For preprocessing methods *contrast* and *hog_features* we use *[preprocessing](feature_extraction.py#L66)*.\
