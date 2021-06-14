@@ -181,16 +181,16 @@ Method returns label prediction (as a number of label from [table](using_models.
 # RESULTS
 *Comparison of results of derived methods.*
 
-Results of models with different parameters are available in [knn_results.txt](knn_results.txt).
+Results of models with different parameters are available in [knn_results.txt](knn_results.txt).\
 The Best ones for each approach:
 
-| accuracy | neighbors | weight | preprocessing |
-| --- | --- | --- | --- |
-| [0.8675](knn_results.txt#L2) | 4 | uniform | hog, pixels rate = 4x4 |
-| [0.8613](knn_results.txt#L13) | 4 | distance | contrast = 12 |
-| [0.8597](knn_results.txt#L16) | 4 | distance | no preprocessing |
+| accuracy | neighbors | weight | preprocessing | parameters for method |
+| --- | --- | --- | --- | --- |
+| [0.8675](knn_results.txt#L2) | 4 | uniform | hog | pixels rate = 4x4 |
+| [0.8613](knn_results.txt#L13) | 4 | distance | contrast | contrast = 12 |
+| [0.8597](knn_results.txt#L16) | 4 | distance | - | - |
 
-Comparing to resuts form: [Fashion MNIST Benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#)
+Comparing to results form: [Fashion MNIST Benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#)
 
 ![image](https://user-images.githubusercontent.com/61067969/120996131-57f2b100-c786-11eb-90c5-e92a9c33a53b.png)
 
