@@ -53,32 +53,55 @@ label = Y_train[index]
 ```
 In following exercises data is accessed from those 4 matrices in this manor.
 # METHODS
-
+*In details how selected methods were implemented.*
 ## Feature extraction from picture
-### [No preprocessing](feature_extraction.py/#L39) (for kNN is unnecessary)
+*How data is accessed in original form, and overview of methods for data preprocessing.*
+### [No preprocessing](feature_extraction.py/#L39)
+Original matrixes are accessed using [load_nist](feature_extraction.py/#L8) method (details in introduction).\
+In result of using the following method we access matrices in their unchanged (original) form.
 ```python
 def load_original(path='original'):
     X_train, y_train = load_mnist(path, kind='train')
     X_test, y_test = load_mnist(path, kind='t10k')
     return X_train, y_train, X_test, y_test
 ```
+Visual representation of single picture in it's original form:
+
 ![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
 
 ### [Preprocessing](feature_extraction.py#L66)
-1. [enchancing contrast](feature_extraction.py/#L85) (using cv2 library); for different variables: 9, 12
+*Overview of two chosen preprocessing approaches and their implementations.*
+1. [enchancing contrast](feature_extraction.py/#L85) - by using this method we focus more on the overall shape 
+   of the clothing.\
+   It is less effective than HOG; however less time-consuming.
+   
+Method implementation using cv2 library.\
+Method intakes picture matrix (in 28x28 format) and contrast rate (I tested values from range 9-12
+since they were ones with more visible results).
 ```python
 def contrast(mx, contr):
     return cv2.filter2D(mx, -1, np.array([[-1, -1, -1], [-1, contr, -1], [-1, -1, -1]]))
 ```
+Method returns processed picture matrix (in 28x28 format). Visual example below (for the same example as above):
+
 ![image](https://user-images.githubusercontent.com/61067969/120994299-a737e200-c784-11eb-961c-3aa0c0ef9767.png)
 
-2. [HOG](feature_extraction.py/#L95) = Histogram of oriented gradients (from skimage.feature import hog); for 9 orientations, 2x2, 4x4, 6x6 pixel rates
+2. [HOG](feature_extraction.py/#L95) (Histogram of oriented gradients) - method focuses 
+   more on contours than on areas in the same color (since it measures gradient orientations of chosen blocks of pixels), hence the method is great for shape recognition.\
+   the method is effective, nevertheless quite time-consuming.
+   
+Method implementation imported from skimage.feature.\
+Method intakes picture matrix (in 28x28 format), number of orientations (gradient orientations), pixel and block rates (sizes of analysed blocks for gradients).\
+For parameters, I chose 9 orientatons (standard value), and 3 pixel rates (2x2, 4x4, 6x6) - 
+since pictures are 28x28 pixels other rates vere nonsensical.
 ```python
 def hog_features(mx, orientations, pixel_cell, cell_block):
     fd, hog_image = hog(mx, orientations=orientations, pixels_per_cell=(pixel_cell, pixel_cell),
                         cells_per_block=(cell_block, cell_block), visualize=True, multichannel=True)
     return hog_image
 ```
+Method returns processed picture matrix (in 28x28 format). Visual example below (for the same example as above):
+
 ![image](https://user-images.githubusercontent.com/61067969/120994756-157ca480-c785-11eb-9e47-00afa70a8208.png)
 
 ## Model selection and implementation
