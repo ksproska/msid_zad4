@@ -1,18 +1,37 @@
 # INTRODUCTION
+*Overview of all exercises, reasoning for selected approaches.*
 
-***Aim:*** By using available libraries (in my example mainly [scikit-learn](https://pypi.org/project/scikit-learn/)) create a model for [Fashion Mnist](https://github.com/zalandoresearch/fashion-mnist) data (matrixes containging matrices of flattened 28x28 pictures of clothing).
+***Aim of the project:*** The exercise is separated into two subexercises:
+1. using methods derived for previous exercises for MSiD ([Naive Bayes](zad3.py#L238), K-NN, Logistic Regression)
+   
+2. using available libraries (in my example mainly [scikit-learn](https://pypi.org/project/scikit-learn/)) 
+   
+create a model for [Fashion Mnist](https://github.com/zalandoresearch/fashion-mnist) data (matrixes containging matrices of flattened 28x28 pictures of clothing).
+Results compare to ones aveliable on [Fashion MNIST Benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#) for each selected model.
 
-Fashion mnist contains 4 matrices, downloaded from https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion to [original](original):
+My selected approaches:
+1. For first exercise I've chosen [Naive Bayes](zad3.py#L238).
+2. For second [K-NN](KNeighbors.py/#L6) from library [scikit-learn](https://pypi.org/project/scikit-learn/).
 
-     └─── original
-          ├─── t10k-images-idx3-ubyte.gz
-          ├─── t10k-labels-idx1-ubyte.gz
-          ├─── train-images-idx3-ubyte.gz
-          └─── train-labels-idx1-ubyte.gz
+For both excercises I tested three preprocessing approaches:
+1. [No preprocessing](feature_extraction.py/#L39) - since for Naive Bayes and kNN it is unnecessary.
+2. [enchancing contrast](feature_extraction.py/#L85) - the reasoning was that shapes of the clothing might be more 
+   indicating of the label than the shades itself, hence increasing contrast could help with identification.
+3. [HOG](feature_extraction.py/#L95) (Histogram of oriented gradients) - similar reason to previous one, only more 
+   reliable; however at the same time more time-consuming.
 
-Because of github upload limitations in my repository only 3/4 files are added.
+### Accessing data
+*Explanation of where and how data is allocated, how it is accessed for following exercises.*
+
+Fashion mnist contains 4 matrices, downloaded from https://github.com/zalandoresearch/fashion-mnist/tree/master/data/fashion:
+
+    ├─── t10k-images-idx3-ubyte.gz
+    ├─── t10k-labels-idx1-ubyte.gz
+    ├─── train-images-idx3-ubyte.gz
+    └─── train-labels-idx1-ubyte.gz
 
 Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feature_extraction.py#L118):
+
 | name | size |
 | --- | --- |
 | X_train | 60000x784 |
@@ -26,6 +45,13 @@ Using method [load_nist](feature_extraction.py/#L8) we extract [4 matrices](feat
 ```python
 ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 ```
+For example picture and label for same instance:
+```python
+index = 7
+picture = X_train[index]
+label = Y_train[index]
+```
+In following exercises data is accessed from those 4 matrices in this manor.
 # METHODS
 
 ## Feature extraction from picture
