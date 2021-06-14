@@ -6,7 +6,7 @@
    
 2. using available libraries (in my example mainly [scikit-learn](https://pypi.org/project/scikit-learn/)) 
    
-create a model for [Fashion Mnist](https://github.com/zalandoresearch/fashion-mnist) data (matrixes containging matrices of flattened 28x28 pictures of clothing).
+create a model for [Fashion Mnist](https://github.com/zalandoresearch/fashion-mnist) data (matrices containing matrices of flattened 28x28 pictures of clothing).
 Results compare to ones aveliable on [Fashion MNIST Benchmark](http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/#) for each selected model.
 
 My selected approaches:
@@ -57,7 +57,7 @@ In following exercises data is accessed from those 4 matrices in this manor.
 ## Feature extraction from picture
 *How data is accessed in original form, and overview of methods for data preprocessing.*
 ### [No preprocessing](feature_extraction.py/#L39)
-Original matrixes are accessed using [load_nist](feature_extraction.py/#L8) method (details in introduction).\
+Original matrices are accessed using [load_nist](feature_extraction.py/#L8) method (details in introduction).\
 In result of using the following method we access matrices in their unchanged (original) form.
 ```python
 def load_original(path='original'):
@@ -65,7 +65,7 @@ def load_original(path='original'):
     X_test, y_test = load_mnist(path, kind='t10k')
     return X_train, y_train, X_test, y_test
 ```
-Visual representation of single picture in it's original form:
+Visual representation of single picture in its original form:
 
 ![image](https://user-images.githubusercontent.com/61067969/120994600-ed8d4100-c784-11eb-9b92-e77162947ef7.png)
 
@@ -92,7 +92,7 @@ Method returns processed picture matrix (in 28x28 format). Visual example below 
    
 Method implementation imported from skimage.feature.\
 Method intakes picture matrix (in 28x28 format), number of orientations (gradient orientations), pixel and block rates (sizes of analysed blocks for gradients).\
-For parameters, I chose 9 orientatons (standard value), and 3 pixel rates (2x2, 4x4, 6x6) - 
+For parameters, I chose 9 orientations (standard value), and 3 pixel rates (2x2, 4x4, 6x6) - 
 since pictures are 28x28 pixels other rates vere nonsensical.
 ```python
 def hog_features(mx, orientations, pixel_cell, cell_block):
@@ -134,7 +134,7 @@ best_error, best_a, best_b, errors = model_selection_nb(X_train, X_test, y_train
 ```python
 neighbours = [3, 4, 5]
 ```
-- [weights](KNeighbors.py#L17) - it has to types: uniform treats each neighbour equally, 
+- [weights](KNeighbors.py#L17) - it has two types: uniform treats each neighbour equally, 
   second is taking into account distance of each neighbour in probability calculations.
 ```python
 weights = ['uniform', 'distance']
@@ -149,7 +149,7 @@ def train_model(neighs, X_train, y_train, X_test, y_test, weights='uniform'):
     # f1 = f1_score()
     return knn_model, score
 ```
-The methods returns derived model along with it's score (as a float between 0 and 1).
+The methods return derived model along with its score (as a float between 0 and 1).
 
 #### Models for other two preprocessing methods
 The methodology presented above in this point is implemented also for 
@@ -181,8 +181,8 @@ Method returns label prediction (as a number of label from [table](using_models.
 # RESULTS
 *Comparison of results of derived methods.*
 
-Results of models with different parameters are avaliable in [knn_results.txt](knn_results.txt).
-Best ones for each approach:
+Results of models with different parameters are available in [knn_results.txt](knn_results.txt).
+The Best ones for each approach:
 
 | accuracy | neighbors | weight | preprocessing |
 | --- | --- | --- | --- |
@@ -203,18 +203,21 @@ HOG only slightly increases accuracy.
 
 ### 1. Accessing and preprocessing data - [feature_extraction.py](feature_extraction.py)
   
-  Since I decided to use HOG for feature extraction, time for feature extraction increased dramaticly, and I decided to seperate this proces from the others. In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
+  Since I decided to use HOG for feature extraction, time for feature extraction increased dramatically, and I decided to separate this process from the others.\
+  In this file the matrices containing images are preprocessed and saved in .pkl file in preprocessing directory.
   
-### 2. Generating 3 models with best accuracy - [KNeighbors.py](KNeighbors.py)
+### 2. Generating 3 models with the best accuracy - [KNeighbors.py](KNeighbors.py)
 
-  By accessing original matrices from original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters. The 3 models with best accuracy are then saved in models directory as .sav files.
+  By accessing original matrices from an original directory and preprocessed matrices from preprocessing directory, I generate models with previously mentioned parameters.\
+  The 3 models with the best accuracy are then saved in models directory as .sav files.
 
-### 3. Using a single model to predict label of a single peacture at the time - [using_models.py](using_models.py)
+### 3. Using a single model to predict a label of a single picture at the time - [using_models.py](using_models.py)
 
   This file is created in order to demonstrate the usage of generated model - how to predict the label of a single picture.
      
 
 ## Used libraries:
+*All necessary libraries for model selection, picture preprocessing, data serialization.*
 - skilearn
 - skimage
 - numpy
@@ -222,6 +225,7 @@ HOG only slightly increases accuracy.
 - pickle
 
 ## Files placement:
+*After downloading files they are supposed to be placed in this order.*
 
      ├─── feature_extraction.py
      ├─── KNeighbors.py
